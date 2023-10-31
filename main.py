@@ -7,8 +7,11 @@ def menu ():
     print()
 
 def decode(password):
+    decoded = []
     for char in password:
-        pass
+        decode_char = str((int(char) - 3) % 10)
+        decoded.append(decode_char)
+    return "".join(decoded)
 
 def main():
     encoded_password = ""
