@@ -6,6 +6,24 @@ def menu ():
     print("3. Quit")
     print()
 
+def encode(password):
+    new_pass = ""
+    for i in password:
+        i = int(i)
+        if i >= 7:
+            if i == 7:
+                i = "0"
+            if i == 8:
+                i = "1"
+            if i == 9:
+                i = "2"
+            new_pass += i
+        else:
+            i += 3
+            i = str(i)
+            new_pass += i
+    return new_pass
+
 def decode(password):
     decoded = []
     for char in password:
@@ -21,12 +39,11 @@ def main():
         if menu_op == 3:
             break
         elif menu_op == 2:
-            encoded_password = decode(encoded_password)
-            print(f"The encoded password is {encoded_password}, and the original password is {decode(encoded_password)}")
+            decoded_password = decode(encoded_password)
+            print(f"The encoded password is {encoded_password}, and the original password is {decoded_password}.")
         elif menu_op == 1:
-            encoded_password = encode(input("Please enter a password to encode: "))
-            print("Your password has been encoded and stored")
-
+            encoded_password = encode(input("Please enter your password to encode: "))
+            print("Your password has been encoded and stored!")
 
 if __name__ == "__main__":
     main()
